@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import SearchBar from './search_bar.jsx';
 
 class Main extends Component {
   render() {
     return (
-      <div> Hello World </div>
+      <div>
+        <div> Hello World </div>
+        <SearchBar />
+      </div>
     )
   }
 }

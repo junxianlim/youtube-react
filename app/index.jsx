@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './components/main.jsx';
+import CONFIG from './config/index';
 
-const YOUTUBE_API_KEY = 'AIzaSyAeg85HPtxO7e6CNuVpqu8q8IvpShV4120';
+console.log(CONFIG);
 
 ReactDOM.render(
   <Main />,
