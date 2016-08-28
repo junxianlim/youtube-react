@@ -23,8 +23,8 @@ module.exports = {
         include: path.join(__dirname, 'app')
       },
       {
-        test: /\/.styl$/,
-        loader: "style!stylus"
+        test: /\.styl$/,
+        loaders: ['style', 'css', 'stylus']
       }
     ]
   }

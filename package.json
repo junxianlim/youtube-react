@@ -24,6 +24,7 @@
     "webpack-hot-middleware": "^2.12.2"
   },
   "dependencies": {
+    "css-loader": "^0.24.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
@@ -31,6 +32,6 @@
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
-    "youtube-api": "^2.0.2"
+    "youtube-api-search": "0.0.5"
   }
 }
