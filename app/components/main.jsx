@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
+import _ from 'lodash';
 
 import SearchBar from './search_bar.jsx';
 import VideoList from './video_list.jsx';
@@ -7,7 +8,6 @@ import VideoDetail from './video_detail.jsx';
 
 import styles from '../styles/styles.styl';
 import CONFIG from '../config/index';
-
 
 class Main extends Component {
 
@@ -18,19 +18,26 @@ class Main extends Component {
       videos: [],
       selectedVideo: null
     };
+    this.videoSearch('');
+  }
 
-    YTSearch({ key: CONFIG.youtube_api_key, term: 'surfboards' }, (videos) => {
+  videoSearch(term) {
+    YTSearch({ key: CONFIG.youtube_api_key, term: term }, (videos) => {
+      if (!this.state.selectedVideo) {
+        this.setState({selectedVideo: videos[0]});
+      }
       this.setState({
-        videos: videos,
-        selectedVideo: videos[0]
+        videos: videos
       });
     });
   }
 
   render() {
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 500);
+
     return (
       <div className="container">
-        <SearchBar />
+        <SearchBar onSearchTermChange={videoSearch}/>
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList
           onVideoSelect={ selectedVideo => this.setState({selectedVideo}) }
