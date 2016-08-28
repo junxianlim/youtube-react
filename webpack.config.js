@@ -27,5 +27,9 @@ module.exports = {
         loaders: ['style', 'css', 'stylus']
       }
     ]
+  },
+  stylus: {
+    use: [require('nib')()],
+    import: ['~nib/lib/nib/index.styl']
   }
 }
