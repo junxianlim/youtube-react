@@ -1,7 +1,7 @@
 import axios from 'axios';
 import CONFIG from '../config/index';
 
-const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
+const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 export function searchVideos(term = "") {
   let params = {
@@ -11,7 +11,7 @@ export function searchVideos(term = "") {
     type: "video"
   }
 
-  let request = axios.get(ROOT_URL, { params: params })
+  let request = axios.get(YOUTUBE_URL, { params: params })
 
   return {
     type: "VIDEOS_SEARCHED",
