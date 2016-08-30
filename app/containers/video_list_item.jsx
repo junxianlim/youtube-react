@@ -21,14 +21,10 @@ function VideoListItem({video, selectVideo}) {
   )
 }
 
-function mapStateToProps(state) {
-  return {}
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     selectVideo: selectVideo
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(VideoListItem)
+export default connect(null, mapDispatchToProps)(VideoListItem)

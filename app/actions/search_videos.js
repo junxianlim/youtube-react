@@ -1,0 +1,46 @@
+import axios from 'axios';
+import CONFIG from '../config/index';
+
+const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
+
+export function searchVideos(term = "") {
+  let params = {
+    part: 'snippet',
+    key: CONFIG.youtube_api_key,
+    q: term,
+    type: "video"
+  }
+
+  let request = axios.get(ROOT_URL, { params: params })
+
+  return {
+    type: "VIDEOS_SEARCHED",
+    payload: request
+  }
+}
+
+//
+// var axios = require('axios');
+//
+// var ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
+//
+// module.exports = function (options, callback) {
+//   if (!options.key) {
+//     throw new Error('Youtube Search expected key, received undefined');
+//   }
+//
+//   var params = {
+//     part: 'snippet',
+//     key: options.key,
+//     q: options.term,
+//     type: 'video'
+//   };
+//
+//   axios.get(ROOT_URL, { params: params })
+//     .then(function(response) {
+//       if (callback) { callback(response.data.items); }
+//     })
+//     .catch(function(error) {
+//       console.error(error);
+//     });
+// };
